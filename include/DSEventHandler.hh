@@ -222,6 +222,7 @@ class DSEventHandler {
   void SetPhoton(PhotonStructure val) { thePhotonStructure = val; }
   void SetDeposit(DepositStructure val) { theDepositStructure = val; }
   void SetUser(UserStructure val) { theUserStructure = val; }
+  void SetCluster(ClusterStructure val) { theClusterStructure = val; }
 
   void ClearHeader();
   void ClearEvent();

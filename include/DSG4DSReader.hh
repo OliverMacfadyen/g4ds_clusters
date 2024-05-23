@@ -62,6 +62,7 @@ class DSG4DSReader {
   PhotoElectronStructure fPhotoElectron;
   PhotoElectronStructure fMuPhotoElectron;
   PhotoElectronStructure fVetoPhotoElectron;
+  ClusterStructure fCluster; // Added to look at cluster sizes 
 
   DepositStructure  theDepositStructure;
   DaughterStructure theDaughterStructure;
