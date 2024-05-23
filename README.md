@@ -85,3 +85,8 @@ To restore a file (erased or modified):
 
 **After a commit, you always need to push your modifications !!!**
 # g4ds_clusters
+
+Adding a tracking of cluster sizes to be able to filter for single scatter events. 
+
+Purpose is to isolate single neutron scatter events for a neutron inefficiency study. 
+
