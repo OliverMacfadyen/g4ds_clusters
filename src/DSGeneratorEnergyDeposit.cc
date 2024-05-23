@@ -69,6 +69,8 @@ void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
     return;
   }
 
+  cout << "check the clusters " << int(DSG4DSReader::Get()->GetVClusters().size()) << endl;
+
   for (int i = 0; i < G4int(DSG4DSReader::Get()->GetVDeposits().size()); ++i) {
 
     G4double xx = DSG4DSReader::Get()->GetVDeposits()[i].Position[0] * cm;

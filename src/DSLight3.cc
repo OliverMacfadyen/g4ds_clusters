@@ -991,14 +991,14 @@ void DSLight3::CreateClusters (G4double myphotons, G4double myelectrons, G4doubl
   G4double dep_time = mytime / ns  ;
   //cout << " __ mytime: "<< mytime << "; with dep_time being: " << dep_time << "__.";
   G4bool fMakeNewCluster = true ;
-  cout << " size of the VClusters: " << int( DSEventHandler::Get()->GetVClusters().size()  ) << ". " << endl ; 
+  //cout << " size of the VClusters: " << int( DSEventHandler::Get()->GetVClusters().size()  ) << ". " << endl ; 
 
   for( int j = 0; j < int( DSEventHandler::Get()->GetVClusters().size()  ); j++){
-    cout << "Loop entered for j = " << j << endl ;
+    //cout << "Loop entered for j = " << j << endl ;
     G4double deltaZ     =   fabs( DSEventHandler::Get()->GetVClusters()[j].Position[2] - dep_z ) ;
     G4double deltaT     =   fabs( DSEventHandler::Get()->GetVClusters()[j].Time - dep_time );
     G4double deltaR     =   sqrt ( pow (  DSEventHandler::Get()->GetVClusters()[j].Position[0]-dep_x, 2) +  pow (  DSEventHandler::Get()->GetVClusters()[j].Position[1]-dep_y, 2)   ) ;
-    cout << "deposit " << j << ": deltaZ = " << deltaZ << "; deltaT = " << deltaT << "; deltaR = " << deltaR << "." << endl ;
+    //cout << "deposit " << j << ": deltaZ = " << deltaZ << "; deltaT = " << deltaT << "; deltaR = " << deltaR << "." << endl ;
     // clustering conditions
     if( deltaZ < fClustering_dist_max_z_cm &&  deltaT < fClustering_deltaT_max_ns  && deltaR < fClustering_deltaR_max_cm ) {
       //weighted average
@@ -1016,7 +1016,7 @@ void DSLight3::CreateClusters (G4double myphotons, G4double myelectrons, G4doubl
       DSEventHandler::Get()->GetVClusters()[j].S1Energy  +=  dep_S1ene ;
       DSEventHandler::Get()->GetVClusters()[j].S2Energy  +=  dep_S2ene ;
       DSEventHandler::Get()->GetVClusters()[j].Energy    +=  dep_true_ene ;
-      cout << "REUSED cluster for deposit " << j << " and loop exited " << endl ;
+      //cout << "REUSED cluster for deposit " << j << " and loop exited " << endl ;
       fMakeNewCluster = false;
       break;
     }
@@ -1032,7 +1032,7 @@ void DSLight3::CreateClusters (G4double myphotons, G4double myelectrons, G4doubl
     //DSEventHandler::Get()->SetClusterMaterial(matIdx)  ;
     DSEventHandler::Get()->SetClusterRecoilID(pfraction)  ;
     DSEventHandler::Get()->SetClusters() ;
-    cout << "NEW cluster  " << endl ;
+    //cout << "NEW cluster  " << endl ;
   }
 
 }

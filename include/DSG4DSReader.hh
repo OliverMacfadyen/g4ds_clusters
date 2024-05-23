@@ -37,15 +37,21 @@ class DSG4DSReader {
   // vector<DepositStructure>&           GetVDeposits() { return theDeposits ; }
   vector<DepositStructure> GetVDeposits() { return theDeposits; }
   vector<DaughterStructure> GetVDaughters() { return theDaughters; }
+  vector<ClusterStructure> GetVClusters() { return theClusters; }
 
   DepositStructure& GetDeposits() { return theDepositStructure; }
   DaughterStructure& GetDaughters() { return theDaughterStructure; }
+  ClusterStructure& GetClusters() { return theClusterStructure; }
 
   void SetDeposit(DepositStructure val) { theDepositStructure = val; }
   void SetDeposits() { theDeposits.push_back(theDepositStructure); }
 
+
   void SetDaughter(DaughterStructure val) { theDaughterStructure = val; }
   void SetDaughters() { theDaughters.push_back(theDaughterStructure); }
+
+  void SetCluster(ClusterStructure val) { theClusterStructure = val; }
+  void SetClusters() { theClusters.push_back(theClusterStructure); }
   
   EventStructureDiskFormat GetEvent() { return fEvent; }
 
@@ -66,8 +72,11 @@ class DSG4DSReader {
 
   DepositStructure  theDepositStructure;
   DaughterStructure theDaughterStructure;
+  ClusterStructure theClusterStructure;
   vector<DepositStructure> theDeposits;
   vector<DaughterStructure> theDaughters;
+  vector<ClusterStructure> theClusters;
+
 };
 
 #endif

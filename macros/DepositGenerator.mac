@@ -10,16 +10,16 @@
 # options: debugging, development, trace, routine, warning, error
 # default: routine
 /ds/manager/log routine
-/ds/manager/verbosity 0
+/ds/manager/verbosity 1
 /ds/manager/checkoverlap 0
-/ds/manager/eventcounter 1000
+/ds/manager/eventcounter 1
 /ds/manager/writedeposits 1
 
 
 /ds/detector/configuration ds20k
 
 # Define output file name
-/run/filename outfile
+/run/filename cluster_test
 
 # Define  random seed
 /run/heprandomseed 12345679
@@ -31,7 +31,7 @@
 /ds/physics/em_list livermore
 
 
-/ds/physics/killS2 1
+/ds/physics/killS1S2 1
 
 
 
@@ -45,7 +45,7 @@
 
 /ds/generator/select EnergyDeposit
 
-/ds/generator/endep/file /sps/nusol/pagnes/uAr/montecarlo/g4ds10/Linux-g++/co60cryo/co60cryo.fil
+/ds/generator/endep/file /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/build/neutrontest_v5.fil
 
 # Define the number of events
-/run/beamOn 200000
+/run/beamOn 10
