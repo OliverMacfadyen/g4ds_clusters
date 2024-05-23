@@ -1,7 +1,7 @@
 CMakeFiles/g4ds.dir/src/DSParameters.cc.o: \
- /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSParameters.cc \
+ /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/src/DSParameters.cc \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/x86_64-conda-linux-gnu/sysroot/usr/include/stdc-predef.h \
- /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/include/DSParameters.hh \
+ /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/include/DSParameters.hh \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/x86_64-conda-linux-gnu/include/c++/10.3.0/iostream \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/x86_64-conda-linux-gnu/include/c++/10.3.0/x86_64-conda-linux-gnu/bits/c++config.h \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/x86_64-conda-linux-gnu/include/c++/10.3.0/x86_64-conda-linux-gnu/bits/os_defines.h \
@@ -372,8 +372,8 @@ CMakeFiles/g4ds.dir/src/DSParameters.cc.o: \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/x86_64-conda-linux-gnu/include/c++/10.3.0/math.h \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/include/Geant4/G4PhysicalConstants.hh \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/include/Geant4/G4SystemOfUnits.hh \
- /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/include/DSIO.hh \
+ /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/include/DSIO.hh \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/include/Geant4/G4String.hh \
- /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/include/DSLogger.hh \
- /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/include/DSStorage.hh \
- /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/include/DSLogger.hh
+ /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/include/DSLogger.hh \
+ /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/include/DSStorage.hh \
+ /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/include/DSLogger.hh

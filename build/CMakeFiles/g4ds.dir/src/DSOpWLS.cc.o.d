@@ -1,5 +1,5 @@
 CMakeFiles/g4ds.dir/src/DSOpWLS.cc.o: \
- /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSOpWLS.cc \
+ /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/src/DSOpWLS.cc \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/x86_64-conda-linux-gnu/sysroot/usr/include/stdc-predef.h \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/include/Geant4/G4OpProcessSubType.hh \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/include/Geant4/G4ios.hh \
@@ -178,7 +178,7 @@ CMakeFiles/g4ds.dir/src/DSOpWLS.cc.o: \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/x86_64-conda-linux-gnu/include/c++/10.3.0/bits/sstream.tcc \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/include/Geant4/tls.hh \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/x86_64-conda-linux-gnu/include/c++/10.3.0/iostream \
- /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/include/DSOpWLS.hh \
+ /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/include/DSOpWLS.hh \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/include/Geant4/G4DynamicParticle.hh \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/include/CLHEP/Units/SystemOfUnits.h \
  /storage/gpfs_ds50/darkside/software/conda/envs/ds/include/CLHEP/Units/defs.h \

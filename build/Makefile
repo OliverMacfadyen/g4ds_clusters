@@ -57,10 +57,10 @@ RM = /storage/gpfs_ds50/darkside/software/conda/envs/ds/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo
+CMAKE_SOURCE_DIR = /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/build
+CMAKE_BINARY_DIR = /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/build/CMakeFiles /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/build/CMakeFiles /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
