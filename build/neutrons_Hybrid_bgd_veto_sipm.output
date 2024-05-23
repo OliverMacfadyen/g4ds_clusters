@@ -1,0 +1,14 @@
+Number of simulated neutrons: 200000000
+Remaining after single cluster cut: 1132058
+Remaining after FV cut: 226098
+Remaining after cl_z cut: 149713
+Remaining after NR cut: 149689
+Remaining after inelastic cut: 146972
+Remaining after ROI cut: 3513
+ 
+200 keV veto threshold and 50 keV TPC threshold: 
+nn_before_veto: 1587
+Not tagged by veto:706
+Combined inefficiency: 3.53e-06
+Veto inefficiency: 0.444865
+ 

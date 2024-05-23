@@ -1,0 +1,151 @@
+#############  G4DS Log File  #############
+
+------------------------------------------
+                   G4DS                   
+
+     The Dark Side Geant4 Simulator        
+------------------------------------------
+
+
+------------------------------------------
+                   Input                  
+------------------------------------------
+
+##########################################################
+#                                                        #
+#       DS20K Neutron Veto Optics Simulation             #
+#                                                        #
+##########################################################
+
+
+#PreInit:
+
+#  Define the level of verbosity of messages
+# options: debugging, development, trace, routine, warning, error
+# default: routine
+/ds/manager/log development
+/ds/manager/verbosity 0
+/ds/manager/checkoverlap 1
+/ds/manager/eventcounter 1
+/ds/manager/writephotons 0
+/ds/manager/writedeposits 1
+/ds/manager/writedaughters 0
+
+
+#Visual
+/vis/open OGL 600x600-0+0
+/vis/viewer/set/autoRefresh false
+/vis/verbose errors
+/vis/viewer/set/style wireframe
+/vis/viewer/set/viewpointThetaPhi 105 165 deg
+/vis/scene/add/trajectories smooth
+/vis/scene/endOfEventAction accumulate
+
+# Detector configurations:
+# ds50_full ds50_tpc_veto ds50_tpc ds20k ds20k_tpc dsproto dsproto0 red_tpc dart ardm tester
+
+/ds/detector/configuration ds20k
+
+# TPC configuration: GdPMMA, PurePMMA, Hybrid
+/ds/detector/TPCconfiguration Hybrid
+
+#DS20k: approximated number of vPDUs in the Veto. "100" is the default and it will build 120 vPDUs
+/ds/detector/ds20k_SiPMsNumber 100
+
+#(de)activate the scintillation in the LAr veto with (0 or) 1
+/ds/detector/vetoyieldfactor 0
+
+#activate the actual placement of the vPDUs
+/ds/detector/ds20k_SiPMs 1
+
+# Define output file name
+/run/filename outDS20k_veto_optics
+
+# Define  random seed
+/run/heprandomseed 127667
+
+#Define the hadronic physics list (none QGSP_BERT_HP QGSP_BIC_HP FTF_BIC_HP FTFP_BERT_HP)
+/ds/physics/hadronic_list none
+
+#Define the EM physics list (standard livermore)
+/ds/physics/em_list livermore
+
+/ds/physics/tuned200V   1
+/ds/physics/killS1S2 1
+
+#-----------------------------------
+/run/initialize
+#-----------------------------------
+
+#PostInit:
+/ds/generator/select G4Gun
+
+/ds/generator/particle geantino
+/ds/generator/energy 0.3 MeV
+
+#/ds/generator/sphere_7m 1
+#/ds/generator/energyfile spectrum.dat
+
+#argonbufferoutside is the UAr volume filling the Ti vessel outside the TPC
+#/ds/generator/argonbufferoutside 1
+#/ds/generator/bgd_reflector 1
+#/ds/generator/plasticscintillator 1
+#/ds/generator/bgd_veto_sipm 1
+#/ds/generator/dune_cryo_foam 1
+#/ds/generator/bgd_titanium_vessel 1
+#/ds/generator/TPCbarrel 1
+#/ds/generator/OPsAcrylic 1
+#/ds/generator/anode 1
+#/ds/generator/cathode 1
+#/ds/generator/physvolume GridSupport
+#/ds/generator/bgd_gridSupport 1
+#/ds/generator/steel_structure 1
+
+/ds/generator/position  0 0 0 cm
+/ds/generator/direction 0 0 1 
+
+# Define the number of events
+/run/beamOn 1
+
+/ds/generator/position  0 0 0 cm
+/ds/generator/direction 0 0 -1 
+
+# Define the number of events
+/run/beamOn 1
+
+#/ds/generator/position  0 0 0 cm
+#/ds/generator/direction 1 0 0
+# Define the number of events
+#/run/beamOn 1
+  
+
+#/ds/generator/position  0 0 0 cm
+#/ds/generator/direction 1 0 0 
+
+# Define the number of events
+#/run/beamOn 15000
+
+
+#/ds/generator/position  0 0 0 cm
+#/ds/generator/direction 1 0 0
+
+# Define the number of events
+#/run/beamOn 1
+
+/vis/viewer/set/autoRefresh true                                                                                                
+/vis/verbose warnings
+/vis/drawVolume worlds
+
+
+------------------------------------------
+                   Output                 
+------------------------------------------
+
+Routine:/storage/gpfs_ds50/darkside/users/mattrossi/MC/hybrid/g4ds11/src/DSDetectorConstruction.cc(88):Fri May 10 17:08:54 2024
+
+Routine:/storage/gpfs_ds50/darkside/users/mattrossi/MC/hybrid/g4ds11/src/DSManagerMessenger.cc(148): Trace Verbosity: 0
+Routine:/storage/gpfs_ds50/darkside/users/mattrossi/MC/hybrid/g4ds11/src/DSManagerMessenger.cc(112): Check Volume Overlaps: 1
+Routine:/storage/gpfs_ds50/darkside/users/mattrossi/MC/hybrid/g4ds11/src/DSManagerMessenger.cc(139): Event Counter: 1
+Routine:/storage/gpfs_ds50/darkside/users/mattrossi/MC/hybrid/g4ds11/src/DSManagerMessenger.cc(124): Write photons: 0
+Routine:/storage/gpfs_ds50/darkside/users/mattrossi/MC/hybrid/g4ds11/src/DSManagerMessenger.cc(127): Write deposits: 1
+Routine:/storage/gpfs_ds50/darkside/users/mattrossi/MC/hybrid/g4ds11/src/DSManagerMessenger.cc(133): Write daughters: 0

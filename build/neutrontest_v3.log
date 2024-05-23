@@ -1,0 +1,1174 @@
+#############  G4DS Log File  #############
+
+------------------------------------------
+                   G4DS                   
+
+     The Dark Side Geant4 Simulator        
+------------------------------------------
+
+
+------------------------------------------
+                   Input                  
+------------------------------------------
+
+#######################################
+#                                     #
+#         Basic G4DS  Macro           #
+#                                     #
+#######################################
+
+#  Define the level of verbosity of messages
+# options: debugging, development, trace, routine, warning, error
+# default: routine
+/ds/manager/log trace
+/ds/manager/verbosity 3
+/ds/manager/checkoverlap 0
+/ds/manager/eventcounter 1
+/ds/manager/writephotons 0
+/ds/manager/writedeposits 1
+/ds/manager/writedaughters 1
+
+# Detector configurations:
+# ds50_full ds50_tpc_veto ds50_tpc ds20k ds20k_tpc dsproto dsproto0 red_tpc dart ardm tester
+
+/ds/detector/configuration ds20k
+
+
+# Define output file name
+/run/filename neutrontest
+
+# Define  random seed
+/run/heprandomseed 12345679
+
+#Define the hadronic physics list (none HP QGSP_BERT_HP QGSP_BIC_HP FTF_BIC_HP FTFP_BERT_HP)
+/ds/physics/hadronic_list none
+
+#Define the EM physics list (standard livermore)
+/ds/physics/em_list livermore
+
+/ds/physics/killS1S2 1
+/ds/detector/vetoyieldfactor 0.0
+
+#-----------------------------------
+/run/initialize
+#-----------------------------------
+/ds/generator/select G4Gun
+
+/ds/generator/particle e- 
+#/ds/generator/direction  0 0 0
+#/ds/generator/position   0 0 0 cm
+/ds/generator/energy   30 keV
+/ds/generator/tpcdistribution 1
+#/ds/generator/bgd_reflector 1
+
+# Define the number of events
+/run/beamOn 10
+
+
+------------------------------------------
+                   Output                 
+------------------------------------------
+
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSDetectorConstruction.cc(88):Wed May 22 17:02:41 2024
+
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSManagerMessenger.cc(148): Trace Verbosity: 3
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSManagerMessenger.cc(112): Check Volume Overlaps: 0
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSManagerMessenger.cc(139): Event Counter: 1
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSManagerMessenger.cc(124): Write photons: 0
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSManagerMessenger.cc(127): Write deposits: 1
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSManagerMessenger.cc(133): Write daughters: 1
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSDetectorConstructionMessenger.cc(458):Detector Configuration: ds20k
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSRunActionMessenger.cc(129):HepRandom seed set to: 12345679
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsListMessenger.cc(83): Hadronic List: none
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsListMessenger.cc(87): EM List: livermore
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsListMessenger.cc(96): Kill S1 and S2 Light: 1
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSDetectorConstructionMessenger.cc(534):Veto Yield Factor: 0.0
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSIO.cc(155):Geometry Input File Closed
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSParameters.cc(155):Detector Geometry loaded
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSParameters.cc(401):Detector Properties loaded
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSParameters.cc(412):TPC PMT Q.E. loaded.
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSIO.cc(264):Cryostat Profile Input File Closed
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSParameters.cc(159):Reading LSV PMT Geometry from file: 
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSParameters.cc(169):Reading LSV PMT Geometry for DS-50 
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSIO.cc(246):Veto PMT Geometry Input File Closed
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSParameters.cc(503): LS Birks Constant for Betas: 0.0109 cm/MeV
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSParameters.cc(506): LS Birks Constant for Alphas: 0.0218 cm/MeV
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSParameters.cc(509): LS Birks Constant for Protons: 0.0109 cm/MeV
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSIO.cc(192):LSV Optics Input File Closed
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSIO.cc(308):PC Attenuation Length Input File Closed
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSIO.cc(327):PPO Attenuation Length Input File Closed
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSIO.cc(346):TMB Attenuation Length Input File Closed
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSIO.cc(289):PC Refraction Index Input File Closed
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSIO.cc(365):Lumirror Reflectivity Input File Closed
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSIO.cc(384):DS50 Veto PMT Quantum Efficiency Input File Closed
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSParameters.cc(811):LSV Optics Properties loaded
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSIO.cc(173):Optics Input File Closed
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSParameters.cc(380):#######    Detector Optics loaded      #######
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):PC: 0
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):TMB: 1
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):BoronScintillator: 2
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Air: 3
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Vacuum: 4
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):PPO: 5
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):DMP: 6
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Acrylic: 7
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):LiquidArgon: 8
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):PseudoArgon: 9
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):NSLiquidArgon: 10
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):GaseousArgon: 11
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):LiquidXenon: 12
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):GaseousXenon: 13
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Steel: 14
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):StainlessSteel: 15
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):GridSteel: 16
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Water: 17
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):MetalLead: 18
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Teflon: 19
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Rock: 20
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Norite: 21
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):HDPE: 22
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Styrofoam: 23
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):MetalCopper: 24
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):MetalCopperCryo: 25
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):MetalTitanium: 26
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):ShipSteel: 27
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):TPB: 28
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):ThreeMFoil: 29
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):FusedSilica: 30
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):SodiumIodide: 31
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):ITO: 32
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):LiquidNitrogen: 33
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):GaseousNitrogen: 34
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Kovar: 35
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Bialkali: 36
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Kapton: 37
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Concrete: 38
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Aluminum: 39
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Glass: 40
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Nylon: 41
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):NylonL: 42
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Bialkali: 43
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Paint: 44
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):BorexScintillator: 45
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):BorexScintillator1: 46
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):BorexScintillator2: 47
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):DMPbuffer: 48
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Quartz: 49
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Beryllium: 50
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Derlin: 51
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):BlackHole: 52
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):fGdOxide: 53
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):GdScintillator: 54
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):GdWater: 55
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):MetalSilicon: 56
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):BoroSilicateGlass: 57
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):FakePhotocathode: 58
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):ClLi: 59
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):NatClLi: 60
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):OrtoCarb: 61
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Li6Scintillator: 62
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):NatLi6Scintillator: 63
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):OrtoCarbScintillator: 64
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):GdAcrylic: 65
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):IVLiquidArgon: 66
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Naphthalene: 67
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Altustipe: 68
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):BC454: 69
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):PlyWood: 70
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):InsulatingFoam: 71
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):LiquidArgonPlasticVeto: 72
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):AcrylicDART: 73
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):ReflectorAcrylic: 74
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Methane: 75
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):OVLiquidArgon: 76
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):XeLiquidArgon: 77
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Invar: 78
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Arlon: 79
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):MetalTungsten: 80
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):MetalTantalum: 81
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):PEN: 82
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):InsulatingFoamRoof: 83
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):BariumFluoride: 84
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):BariumFluoride_1: 85
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):BariumFluoride_2: 86
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Ceramic: 87
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Carbon: 88
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):Germanium: 89
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):ESR: 90
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):ArlonPrepreg: 91
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSMaterial.cc(1831):LArAboveGrid: 92
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSDetectorConstruction.cc(163): Detector Configuration - DS20k: 4
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSDetectorDuneCryostat.cc(31): Constructing Dune Cryostat Geometry
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSDetectorDS20kNeutronVeto.cc(30): Constructing DS20k NeutronVeto Geometry
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSDetectorDS20k.cc(50): Constructing DS20k Geometry
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(102):Livermore EM Physics List Active
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(108):Optical Physics Active with verbosity = 0
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(502): MeanQuantaEnergy: 1.95e-05
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(506): S1ScaleFactor: 0.94116
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(510): S2Yield: 273.2
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(522): LindhardFactor: 0.25
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(514): ExcitationRatioER: 0.21
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(518): ExcitationRatioNR: 1
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(526): PhotonEneMean: 9.69e-06
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(530): PhotonEneWidth: 2.2e-07
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(534): D_T: 1.5e-06
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(538): D_L: 4.8e-07
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(542): Sigma0_Sq: 4.8e-07
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(546): LArTauFast: 6
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(550): LArTauSlow: 1600
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(554): GArTauFast: 11
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(558): GArTauSlow: 3200
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(570): GArSingletToTriplet: 0.09
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(562): TauReco: 0.8
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(566): TaueLAr: 1.58e+07
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(502): MeanQuantaEnergy: 1.95e-05
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(506): S1ScaleFactor: 0.94116
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(510): S2Yield: 273.2
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(522): LindhardFactor: 0.25
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(514): ExcitationRatioER: 0.21
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(518): ExcitationRatioNR: 1
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(526): PhotonEneMean: 9.69e-06
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(530): PhotonEneWidth: 2.2e-07
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(534): D_T: 1.5e-06
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(538): D_L: 4.8e-07
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(542): Sigma0_Sq: 4.8e-07
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(546): LArTauFast: 6
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(550): LArTauSlow: 1600
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(554): GArTauFast: 11
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(558): GArTauSlow: 3200
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(570): GArSingletToTriplet: 0.09
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(562): TauReco: 0.8
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(566): TaueLAr: 1.58e+07
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(502): MeanQuantaEnergy: 1.95e-05
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(506): S1ScaleFactor: 0.94116
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(510): S2Yield: 273.2
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(522): LindhardFactor: 0.25
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(514): ExcitationRatioER: 0.21
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(518): ExcitationRatioNR: 1
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(526): PhotonEneMean: 9.69e-06
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(530): PhotonEneWidth: 2.2e-07
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(534): D_T: 1.5e-06
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(538): D_L: 4.8e-07
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(542): Sigma0_Sq: 4.8e-07
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(546): LArTauFast: 6
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(550): LArTauSlow: 1600
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(554): GArTauFast: 11
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(558): GArTauSlow: 3200
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(570): GArSingletToTriplet: 0.09
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(562): TauReco: 0.8
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSLight3.cc(566): TaueLAr: 1.58e+07
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(157):Hadronic Physics DISABLED
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 1091 ; Process Name: Transportation
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 8999 ; Process Name: DSLight3
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 6201 ; Process Name: Decay
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 7401 ; Process Name: StepLimiter
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 7402 ; Process Name: UserSpecialCut
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 2010 ; Process Name: msc
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 2002 ; Process Name: ionIoni
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 2008 ; Process Name: nuclearStopping
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 6210 ; Process Name: RadioactiveDecay
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 2003 ; Process Name: hBrems
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 2004 ; Process Name: hPairProd
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 2001 ; Process Name: CoulombScat
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 2005 ; Process Name: annihil
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 4121 ; Process Name: positronNuclear
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 2012 ; Process Name: phot
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 2013 ; Process Name: compt
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 2014 ; Process Name: conv
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 2011 ; Process Name: Rayl
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 3031 ; Process Name: OpAbsorption
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 3033 ; Process Name: OpRayleigh
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 3034 ; Process Name: OpWLS
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(696): Process Map Table - Index: 3032 ; Process Name: OpBoundary
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(195):Adding Options for Had Physics
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPhysicsList.cc(635): Default Physics Cut Set to 0.1 cm 
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSPrimaryGeneratorActionMessenger.cc(65):Generator: G4Gun
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSGeneratorG4Gun.cc(31):G4ParticleGun Constructed.
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSVGenerator.cc(225): Random spatial distribution activated 
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSVGeneratorMessenger.cc(414):Random Position Distribution in the TPC  = 1
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSRunAction.cc(78):********************
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSRunAction.cc(79):*** AUTOSEED OFF ***
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSRunAction.cc(80):********************
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSRunAction.cc(93):Random seed: 12345679
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSRunAction.cc(106):Initialized Binary File: neutrontest_v3.fil
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(172):>>> Event 0;  NPE = 0;  NPE/event = 0; Cluster Size = 2;
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(176):    Starting Position: (142.357,52.8405,-152.763) cm
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(177):    Energy           : 30 keV
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(178):    PDG              : 11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(180):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(184):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(63):Header: N    10
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(64):Header: Run  0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(65):Header: Rate 350645
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(66):Header: Det  4
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(67):Header: Gen  8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(68):Header: Gen  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(69):Header: PY   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(70):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(73):Event: ID        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(74):Event: PDG       11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(75):Event: T         0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(76):Event: E         30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(77):Event: S1 E      27.456
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(78):Event: S2 E      2.5935
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(79):Event: Veto QE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(80):Event: TPC QE    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(81):Event: TPC DepE  30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(82):Event: Veto DepE 0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(83):Event: Mu DepE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(84):Event: X         142.357
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(85):Event: Y         52.8405
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(86):Event: Z         -152.763
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(87):Event: BX        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(88):Event: BY        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(89):Event: BZ        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(90):Event: pX        -0.820085
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(91):Event: pY        0.4102
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(92):Event: pZ        0.398995
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(93):Event: ND        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(94):Event: NDep      3
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(95):Event: NUs       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(96):Event: NPE       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(97):Event: MuNPE     0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(98):Event: VetoNPE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(99):Event: NPH       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(100):Event: NCluster  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(101): 
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    0.744079
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 1.48847
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    1.48953e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    142.357
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    52.8405
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -152.763
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    12.841
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 15.073
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    6.17482e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    142.356
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    52.8404
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -152.763
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    16.4149
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 6.55243
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    8.41359e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    142.356
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    52.8405
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -152.763
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    13.5851
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   12.2271
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   1.35799
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    14.9681
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    5.55591
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    -16.0623
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    16.4149
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   14.7741
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   1.64087
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    6.17482e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    142.356
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    52.8405
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    -152.763
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(174):>>> Event 1;  NPE = 0;  NPE/event = 0; Cluster Size = 2;  CPUTime/event = 0.00106055 s
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(176):    Starting Position: (-162.921,-44.8094,138.043) cm
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(177):    Energy           : 30 keV
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(178):    PDG              : 11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(180):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(184):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(63):Header: N    10
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(64):Header: Run  0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(65):Header: Rate 350645
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(66):Header: Det  4
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(67):Header: Gen  8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(68):Header: Gen  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(69):Header: PY   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(70):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(73):Event: ID        1
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(74):Event: PDG       11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(75):Event: T         0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(76):Event: E         30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(77):Event: S1 E      27.417
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(78):Event: S2 E      3.1005
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(79):Event: Veto QE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(80):Event: TPC QE    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(81):Event: TPC DepE  30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(82):Event: Veto DepE 0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(83):Event: Mu DepE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(84):Event: X         -162.921
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(85):Event: Y         -44.8094
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(86):Event: Z         138.043
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(87):Event: BX        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(88):Event: BY        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(89):Event: BZ        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(90):Event: pX        -0.617744
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(91):Event: pY        -0.623092
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(92):Event: pZ        -0.479738
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(93):Event: ND        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(94):Event: NDep      3
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(95):Event: NUs       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(96):Event: NPE       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(97):Event: MuNPE     0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(98):Event: VetoNPE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(99):Event: NPH       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(100):Event: NCluster  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(101): 
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    0.777498
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 1.48847
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    1.47803e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -162.921
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -44.8094
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    138.043
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    13.6003
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 15.0571
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    6.15649e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -162.921
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -44.8097
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    138.043
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    15.6222
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 6.01433
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    8.2593e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -162.921
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -44.8098
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    138.043
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    14.3778
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   12.9405
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   1.43723
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -17.1191
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    -4.70842
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    14.505
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    15.6222
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   14.0606
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   1.56163
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    6.15649e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -162.921
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    -44.8098
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    138.043
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(174):>>> Event 2;  NPE = 0;  NPE/event = 0; Cluster Size = 2;  CPUTime/event = 0.00117216 s
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(176):    Starting Position: (-165.133,-53.237,66.0402) cm
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(177):    Energy           : 30 keV
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(178):    PDG              : 11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(180):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(184):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(63):Header: N    10
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(64):Header: Run  0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(65):Header: Rate 350645
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(66):Header: Det  4
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(67):Header: Gen  8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(68):Header: Gen  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(69):Header: PY   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(70):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(73):Event: ID        2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(74):Event: PDG       11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(75):Event: T         0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(76):Event: E         30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(77):Event: S1 E      26.871
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(78):Event: S2 E      3.12
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(79):Event: Veto QE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(80):Event: TPC QE    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(81):Event: TPC DepE  30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(82):Event: Veto DepE 0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(83):Event: Mu DepE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(84):Event: X         -165.133
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(85):Event: Y         -53.237
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(86):Event: Z         66.0402
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(87):Event: BX        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(88):Event: BY        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(89):Event: BZ        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(90):Event: pX        -0.940014
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(91):Event: pY        0.271877
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(92):Event: pZ        -0.20605
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(93):Event: ND        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(94):Event: NDep      3
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(95):Event: NUs       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(96):Event: NPE       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(97):Event: MuNPE     0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(98):Event: VetoNPE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(99):Event: NPH       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(100):Event: NCluster  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(101): 
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    1.20897
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 1.48847
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    1.49133e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -165.133
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -53.237
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    66.0401
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    23.8383
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 14.8495
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    6.08169e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -165.133
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -53.2371
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    66.04
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    4.95271
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 0.862049
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    6.60243e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -165.133
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -53.2371
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    66.04
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    25.0473
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   22.5435
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   2.50377
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -17.2567
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    -5.56336
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    6.90129
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    4.95271
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   4.45762
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   0.495081
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    6.08169e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -165.133
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    -53.2371
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    66.04
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(174):>>> Event 3;  NPE = 0;  NPE/event = 0; Cluster Size = 2;  CPUTime/event = 0.00120834 s
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(176):    Starting Position: (163.022,4.25945,-78.8162) cm
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(177):    Energy           : 30 keV
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(178):    PDG              : 11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(180):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(184):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(63):Header: N    10
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(64):Header: Run  0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(65):Header: Rate 350645
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(66):Header: Det  4
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(67):Header: Gen  8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(68):Header: Gen  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(69):Header: PY   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(70):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(73):Event: ID        3
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(74):Event: PDG       11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(75):Event: T         0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(76):Event: E         30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(77):Event: S1 E      27.3975
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(78):Event: S2 E      3.003
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(79):Event: Veto QE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(80):Event: TPC QE    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(81):Event: TPC DepE  30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(82):Event: Veto DepE 0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(83):Event: Mu DepE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(84):Event: X         163.022
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(85):Event: Y         4.25945
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(86):Event: Z         -78.8162
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(87):Event: BX        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(88):Event: BY        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(89):Event: BZ        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(90):Event: pX        -0.124629
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(91):Event: pY        -0.990667
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(92):Event: pZ        -0.0552009
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(93):Event: ND        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(94):Event: NDep      3
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(95):Event: NUs       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(96):Event: NPE       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(97):Event: MuNPE     0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(98):Event: VetoNPE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(99):Event: NPH       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(100):Event: NCluster  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(101): 
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    0.830074
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 1.48847
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    1.48673e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    163.022
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    4.2593
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -78.8163
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    18.4265
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 15.032
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    6.15444e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    163.022
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    4.25886
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -78.8162
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    10.7435
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 3.17494
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    7.47326e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    163.023
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    4.25881
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -78.8162
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    19.2565
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   17.3316
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   1.92492
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    16.9538
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    0.442909
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    -8.19661
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    10.7435
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   9.66952
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   1.07394
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    6.15444e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    163.023
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    4.25881
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    -78.8162
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(174):>>> Event 4;  NPE = 0;  NPE/event = 0; Cluster Size = 2;  CPUTime/event = 0.00134784 s
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(176):    Starting Position: (-157.633,-10.5607,113.258) cm
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(177):    Energy           : 30 keV
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(178):    PDG              : 11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(180):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(184):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(63):Header: N    10
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(64):Header: Run  0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(65):Header: Rate 350645
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(66):Header: Det  4
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(67):Header: Gen  8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(68):Header: Gen  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(69):Header: PY   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(70):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(73):Event: ID        4
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(74):Event: PDG       11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(75):Event: T         0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(76):Event: E         30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(77):Event: S1 E      26.871
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(78):Event: S2 E      3.198
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(79):Event: Veto QE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(80):Event: TPC QE    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(81):Event: TPC DepE  30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(82):Event: Veto DepE 0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(83):Event: Mu DepE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(84):Event: X         -157.633
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(85):Event: Y         -10.5607
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(86):Event: Z         113.258
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(87):Event: BX        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(88):Event: BY        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(89):Event: BZ        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(90):Event: pX        -0.724209
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(91):Event: pY        -0.330338
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(92):Event: pZ        -0.605309
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(93):Event: ND        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(94):Event: NDep      3
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(95):Event: NUs       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(96):Event: NPE       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(97):Event: MuNPE     0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(98):Event: VetoNPE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(99):Event: NPH       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(100):Event: NCluster  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(101): 
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    1.56138
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 1.48847
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    1.49169e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -157.633
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -10.5607
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    113.258
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    19.1623
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 14.6768
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    6.01025e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -157.634
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -10.5608
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    113.258
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    9.27631
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 2.47201
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    7.11124e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -157.634
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -10.5608
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    113.258
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    20.7237
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   18.6521
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   2.07158
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -16.9036
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    -1.13247
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    12.1451
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    9.27631
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   8.34903
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   0.927277
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    6.01025e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -157.634
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    -10.5608
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    113.258
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(174):>>> Event 5;  NPE = 0;  NPE/event = 0; Cluster Size = 2;  CPUTime/event = 0.00109169 s
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(176):    Starting Position: (-36.0913,-139.101,-21.1784) cm
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(177):    Energy           : 30 keV
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(178):    PDG              : 11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(180):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(184):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(63):Header: N    10
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(64):Header: Run  0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(65):Header: Rate 350645
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(66):Header: Det  4
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(67):Header: Gen  8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(68):Header: Gen  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(69):Header: PY   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(70):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(73):Event: ID        5
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(74):Event: PDG       11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(75):Event: T         0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(76):Event: E         30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(77):Event: S1 E      27.417
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(78):Event: S2 E      2.613
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(79):Event: Veto QE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(80):Event: TPC QE    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(81):Event: TPC DepE  30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(82):Event: Veto DepE 0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(83):Event: Mu DepE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(84):Event: X         -36.0913
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(85):Event: Y         -139.101
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(86):Event: Z         -21.1784
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(87):Event: BX        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(88):Event: BY        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(89):Event: BZ        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(90):Event: pX        0.975935
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(91):Event: pY        -0.217293
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(92):Event: pZ        -0.0182933
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(93):Event: ND        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(94):Event: NDep      3
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(95):Event: NUs       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(96):Event: NPE       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(97):Event: MuNPE     0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(98):Event: VetoNPE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(99):Event: NPH       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(100):Event: NCluster  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(101): 
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    0.344773
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 1.48847
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    1.46921e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -36.0911
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -139.101
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -21.1783
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    24.8906
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 15.2613
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    6.23639e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -36.0908
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -139.101
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -21.1781
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    4.7646
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 0.808943
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    6.73429e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -36.0908
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -139.101
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -21.178
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    25.2354
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   22.7128
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   2.52258
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -3.65261
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    -14.0779
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    -2.14335
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    4.7646
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   4.28832
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   0.476278
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    6.23639e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -36.0908
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    -139.101
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    -21.178
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(174):>>> Event 6;  NPE = 0;  NPE/event = 0; Cluster Size = 2;  CPUTime/event = 0.00115866 s
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(176):    Starting Position: (141.752,100.983,58.1749) cm
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(177):    Energy           : 30 keV
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(178):    PDG              : 11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(180):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(184):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(63):Header: N    10
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(64):Header: Run  0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(65):Header: Rate 350645
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(66):Header: Det  4
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(67):Header: Gen  8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(68):Header: Gen  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(69):Header: PY   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(70):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(73):Event: ID        6
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(74):Event: PDG       11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(75):Event: T         0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(76):Event: E         30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(77):Event: S1 E      26.871
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(78):Event: S2 E      3.471
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(79):Event: Veto QE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(80):Event: TPC QE    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(81):Event: TPC DepE  30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(82):Event: Veto DepE 0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(83):Event: Mu DepE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(84):Event: X         141.752
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(85):Event: Y         100.983
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(86):Event: Z         58.1749
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(87):Event: BX        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(88):Event: BY        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(89):Event: BZ        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(90):Event: pX        0.300719
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(91):Event: pY        -0.773
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(92):Event: pZ        -0.558605
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(93):Event: ND        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(94):Event: NDep      3
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(95):Event: NUs       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(96):Event: NPE       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(97):Event: MuNPE     0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(98):Event: VetoNPE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(99):Event: NPH       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(100):Event: NCluster  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(101): 
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    1.42333
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 1.48847
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    1.45411e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    141.752
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    100.983
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    58.1748
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    16.705
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 14.7448
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    6.00078e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    141.752
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    100.982
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    58.1746
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    11.8717
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 3.76205
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    7.49266e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    141.752
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    100.982
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    58.1747
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    18.1283
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   16.3162
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   1.81214
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    15.2472
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    10.8619
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    6.25743
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    11.8717
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   10.685
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   1.18672
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    6.00078e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    141.752
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    100.982
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    58.1747
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(174):>>> Event 7;  NPE = 0;  NPE/event = 0; Cluster Size = 2;  CPUTime/event = 0.00108958 s
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(176):    Starting Position: (-14.5552,-138.334,-31.2905) cm
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(177):    Energy           : 30 keV
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(178):    PDG              : 11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(180):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(184):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(63):Header: N    10
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(64):Header: Run  0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(65):Header: Rate 350645
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(66):Header: Det  4
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(67):Header: Gen  8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(68):Header: Gen  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(69):Header: PY   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(70):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(73):Event: ID        7
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(74):Event: PDG       11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(75):Event: T         0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(76):Event: E         30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(77):Event: S1 E      28.4115
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(78):Event: S2 E      2.964
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(79):Event: Veto QE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(80):Event: TPC QE    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(81):Event: TPC DepE  30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(82):Event: Veto DepE 0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(83):Event: Mu DepE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(84):Event: X         -14.5552
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(85):Event: Y         -138.334
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(86):Event: Z         -31.2905
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(87):Event: BX        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(88):Event: BY        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(89):Event: BZ        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(90):Event: pX        0.264376
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(91):Event: pY        -0.384916
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(92):Event: pZ        -0.884277
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(93):Event: ND        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(94):Event: NDep      3
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(95):Event: NUs       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(96):Event: NPE       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(97):Event: MuNPE     0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(98):Event: VetoNPE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(99):Event: NPH       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(100):Event: NCluster  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(101): 
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    2.55284
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 1.48847
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    1.36898e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -14.5552
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -138.334
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -31.2907
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    20.1746
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 14.1742
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    5.68636e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -14.5554
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -138.334
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -31.291
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    7.27256
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 1.63699
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    6.5061e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -14.5554
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -138.334
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -31.291
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    22.7274
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   20.4556
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   2.27188
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -1.61862
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    -15.3833
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    -3.47968
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    7.27256
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   6.54558
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   0.726978
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    5.68636e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -14.5554
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    -138.334
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    -31.291
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(174):>>> Event 8;  NPE = 0;  NPE/event = 0; Cluster Size = 2;  CPUTime/event = 0.00114945 s
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(176):    Starting Position: (-90.3648,-50.2654,-118.589) cm
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(177):    Energy           : 30 keV
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(178):    PDG              : 11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(180):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(184):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(63):Header: N    10
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(64):Header: Run  0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(65):Header: Rate 350645
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(66):Header: Det  4
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(67):Header: Gen  8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(68):Header: Gen  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(69):Header: PY   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(70):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(73):Event: ID        8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(74):Event: PDG       11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(75):Event: T         0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(76):Event: E         30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(77):Event: S1 E      27.6315
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(78):Event: S2 E      3.9
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(79):Event: Veto QE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(80):Event: TPC QE    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(81):Event: TPC DepE  30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(82):Event: Veto DepE 0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(83):Event: Mu DepE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(84):Event: X         -90.3648
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(85):Event: Y         -50.2654
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(86):Event: Z         -118.589
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(87):Event: BX        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(88):Event: BY        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(89):Event: BZ        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(90):Event: pX        0.0575012
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(91):Event: pY        -0.755184
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(92):Event: pZ        0.652986
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(93):Event: ND        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(94):Event: NDep      3
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(95):Event: NUs       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(96):Event: NPE       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(97):Event: MuNPE     0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(98):Event: VetoNPE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(99):Event: NPH       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(100):Event: NCluster  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(101): 
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    1.29262
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 1.48847
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    1.47017e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -90.3648
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -50.2654
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -118.588
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    16.0675
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 14.8088
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    6.04347e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -90.3647
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -50.2655
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -118.588
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    12.6399
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 4.18408
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    7.65628e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -90.3646
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    -50.2655
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -118.588
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    17.3601
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   15.6248
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   1.73535
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -9.68185
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    -5.38555
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    -12.7058
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    12.6399
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   11.3764
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   1.26351
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    6.04347e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -90.3646
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    -50.2655
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    -118.588
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(174):>>> Event 9;  NPE = 0;  NPE/event = 0; Cluster Size = 2;  CPUTime/event = 0.00110597 s
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(176):    Starting Position: (-45.4819,115.66,-17.8134) cm
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(177):    Energy           : 30 keV
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(178):    PDG              : 11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(180):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventAction.cc(184):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(63):Header: N    10
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(64):Header: Run  0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(65):Header: Rate 350645
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(66):Header: Det  4
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(67):Header: Gen  8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(68):Header: Gen  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(69):Header: PY   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(70):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(73):Event: ID        9
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(74):Event: PDG       11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(75):Event: T         0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(76):Event: E         30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(77):Event: S1 E      27.222
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(78):Event: S2 E      3.159
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(79):Event: Veto QE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(80):Event: TPC QE    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(81):Event: TPC DepE  30
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(82):Event: Veto DepE 0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(83):Event: Mu DepE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(84):Event: X         -45.4819
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(85):Event: Y         115.66
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(86):Event: Z         -17.8134
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(87):Event: BX        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(88):Event: BY        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(89):Event: BZ        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(90):Event: pX        0.223813
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(91):Event: pY        0.568712
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(92):Event: pZ        0.791501
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(93):Event: ND        0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(94):Event: NDep      3
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(95):Event: NUs       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(96):Event: NPE       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(97):Event: MuNPE     0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(98):Event: VetoNPE   0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(99):Event: NPH       0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(100):Event: NCluster  2
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(101): 
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    1.10606
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 1.48847
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    1.49248e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -45.4819
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    115.66
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -17.8133
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    15.0632
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 14.8994
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    6.10383e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -45.4819
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    115.66
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -17.8129
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(156):Deposit: PDG  11
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(157):Deposit: E    13.8307
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(158):Deposit: V    8
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(159):Deposit: Step 4.87702
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(160):Deposit: T    7.90834e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(161):Deposit: X    -45.482
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(162):Deposit: Y    115.66
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(163):Deposit: Z    -17.813
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(164):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    16.1693
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   14.553
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   1.61631
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    0
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -4.84473
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    12.3201
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    -1.89743
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(170):clus: fp   0.251497
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(171):clus: E    13.8307
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(172):clus: S1   12.4482
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(173):clus: S2   1.38254
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(175):clus: T    6.10383e-05
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(176):clus: X    -45.482
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(177):clus: Y    115.66
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(178):clus: Z    -17.813
+Trace:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSEventHandler.cc(179):
+Routine:/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds11_matteo/src/DSIO.cc(107):Binary File Closed
