@@ -92,7 +92,7 @@ struct EventStructureDiskFormat {
   int NDaughters;         // Number of daughters (size of the vector theDaughters)
   int NDeposits;          // Number of deposits  (size of the vector theDeposits)
   int NUsers;             // Size of the vector theUsers
-  int NClusters;       // Size of the vector theClusters  
+  int NClusters;          // Size of the vector theClusters  
 };
 
 struct EventStructure : public EventStructureDiskFormat {

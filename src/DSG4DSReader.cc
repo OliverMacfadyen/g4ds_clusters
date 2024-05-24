@@ -104,12 +104,13 @@ G4bool DSG4DSReader::ReadEvent() {
     DSEventHandler::Get()->SetMuPhotoElectrons();
   }
 
-  // Added to read the clusters from the file 
+  // Added to read the clusters from the file
 
   for (int i = 0; i < fEvent.NClusters; i++) {
     DSIO::Get()->GetG4DSFile().read(reinterpret_cast<char*>(&fCluster), sizeof(ClusterStructure));
     DSEventHandler::Get()->SetCluster(fCluster);
     DSEventHandler::Get()->SetClusters();
+    cout << "Looking at fCluster in G4Reader: " << fEvent.NClusters << endl;
   }
 
   int BuffDimension2;

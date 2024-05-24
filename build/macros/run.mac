@@ -8,7 +8,7 @@
 # options: debugging, development, trace, routine, warning, error
 # default: routine
 /ds/manager/log trace
-/ds/manager/verbosity 3
+/ds/manager/verbosity 0
 /ds/manager/checkoverlap 0
 /ds/manager/eventcounter 1
 /ds/manager/writephotons 0
@@ -22,7 +22,7 @@
 
 
 # Define output file name
-/run/filename neutrontest
+/run/filename gammaTestRun
 
 # Define  random seed
 /run/heprandomseed 12345679
@@ -41,10 +41,10 @@
 #-----------------------------------
 /ds/generator/select G4Gun
 
-/ds/generator/particle e- 
+/ds/generator/particle gamma
 #/ds/generator/direction  0 0 0
 #/ds/generator/position   0 0 0 cm
-/ds/generator/energy   30 keV
+/ds/generator/energy   5 MeV
 /ds/generator/tpcdistribution 1
 #/ds/generator/bgd_reflector 1
 
