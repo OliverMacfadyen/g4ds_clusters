@@ -110,7 +110,7 @@ G4bool DSG4DSReader::ReadEvent() {
     DSIO::Get()->GetG4DSFile().read(reinterpret_cast<char*>(&fCluster), sizeof(ClusterStructure));
     DSEventHandler::Get()->SetCluster(fCluster);
     DSEventHandler::Get()->SetClusters();
-    cout << "Looking at fCluster in G4Reader: " << fEvent.NClusters << endl;
+    if ( i == (fEvent.NClusters) - 1) { cout << "NClusters obtained from G4Reader: " << i + 1 << endl; }
   }
 
   int BuffDimension2;

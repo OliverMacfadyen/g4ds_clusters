@@ -52,6 +52,7 @@ class DSGeneratorEnergyDeposit : public DSVGenerator {
   G4int fnumev;
   G4int fSkipEvents;
   G4String fFile;
+
 };
 #endif
 /*

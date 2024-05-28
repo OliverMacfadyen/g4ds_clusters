@@ -62,6 +62,7 @@ void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
   while (!isNDepo) {
     isRead = DSG4DSReader::Get()->ReadEvent();
     if (int(DSG4DSReader::Get()->GetVDeposits().size()) > 0) isNDepo = true;
+    cout << "NClusters obtained in GenEnergyDep: " << int(DSG4DSReader::Get()->GetEvent().NClusters) << endl;
   }
   if (!isRead) {
     DSIO::Get()->CloseG4DSFile();
@@ -69,7 +70,7 @@ void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
     return;
   }
 
-  cout << "Looking for a cluster size " << int(DSG4DSReader::Get()->fEvent.NClusters) << endl;
+  
 
   for (int i = 0; i < G4int(DSG4DSReader::Get()->GetVDeposits().size()); ++i) {
 
@@ -78,7 +79,7 @@ void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
     G4double zz = DSG4DSReader::Get()->GetVDeposits()[i].Position[2] * cm;
 
     fPosition = G4ThreeVector(xx, yy, zz);
-    
+
  
     if (DSG4DSReader::Get()->GetVDeposits()[i].PID < 10000)
       fParticle = fParticleTable->FindParticle(DSG4DSReader::Get()->GetVDeposits()[i].PID);
