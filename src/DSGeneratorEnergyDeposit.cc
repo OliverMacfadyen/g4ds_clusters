@@ -53,6 +53,10 @@ void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
   G4bool isRead = false;
   G4bool isNDepo = false;
 //  int nSkip = DSStorage::Get()->GetSkipEvents();
+  if (int(DSG4DSReader::Get()->GetEvent().NClusters) > 10 ) {
+    fSkipEvents = 1; 
+
+  }
 
   if (fSkipEvents > 0) {
     DSG4DSReader::Get()->SkipEvents(fSkipEvents);
@@ -63,6 +67,7 @@ void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
     isRead = DSG4DSReader::Get()->ReadEvent();
     if (int(DSG4DSReader::Get()->GetVDeposits().size()) > 0) isNDepo = true;
     cout << "NClusters obtained in GenEnergyDep: " << int(DSG4DSReader::Get()->GetEvent().NClusters) << endl;
+    if (int(DSG4DSReader::Get()->GetEvent().NClusters) > 10) {cout << "To be skipped" << endl; }
   }
   if (!isRead) {
     DSIO::Get()->CloseG4DSFile();
@@ -70,7 +75,7 @@ void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
     return;
   }
 
-  
+
 
   for (int i = 0; i < G4int(DSG4DSReader::Get()->GetVDeposits().size()); ++i) {
 
