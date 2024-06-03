@@ -45,7 +45,7 @@
 
 /ds/generator/select EnergyDeposit
 
-/ds/generator/endep/file /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/build/gammaTestRun_v1.fil
+/ds/generator/endep/file /Users/olivermacfadyen/Documents/simulation/g4ds_clusters/build/gammaTestRun_v1.fil
 
 # Define the number of events
 /run/beamOn 10

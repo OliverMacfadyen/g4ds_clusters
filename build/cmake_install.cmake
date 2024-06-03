@@ -1,4 +1,4 @@
-# Install script for directory: /storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters
+# Install script for directory: /Users/olivermacfadyen/Documents/simulation/g4ds_clusters
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,11 +27,6 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-# Install shared libraries without execute permission?
-if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "0")
-endif()
-
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
@@ -39,21 +34,18 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/storage/gpfs_ds50/darkside/software/conda/envs/ds/bin/x86_64-conda-linux-gnu-objdump")
+  set(CMAKE_OBJDUMP "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/objdump")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/Users/olivermacfadyen/Documents/simulation/g4ds_clusters/build/g4ds")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/g4ds" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/g4ds")
-    file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/g4ds"
-         RPATH "")
-  endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/build/g4ds")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/g4ds" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/g4ds")
+    execute_process(COMMAND /usr/bin/install_name_tool
+      -delete_rpath "/Users/olivermacfadyen/anaconda3/envs/g4ds11/lib"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/g4ds")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/storage/gpfs_ds50/darkside/software/conda/envs/ds/bin/x86_64-conda-linux-gnu-strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/g4ds")
+      execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip" -u -r "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/g4ds")
     endif()
   endif()
 endif()
@@ -66,5 +58,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/storage/gpfs_ds50/darkside/users/omacfadyen/g4ds_clusters/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/olivermacfadyen/Documents/simulation/g4ds_clusters/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
