@@ -161,6 +161,7 @@ void DSEventAction::EndOfEventAction(const G4Event* evt) {
   fTotNPE += DSEventHandler::Get()->GetMuNPE();
   int OverAllNPE = DSEventHandler::Get()->GetNPE() + DSEventHandler::Get()->GetVetoNPE() + DSEventHandler::Get()->GetMuNPE();
   int ClusterSize = DSEventHandler::Get()->GetNClusters(); 
+  int DepositSize = DSEventHandler::Get()->GetNDeposits();
 
   //if (!evt->GetEventID()) {
   //  fTimer->Stop();
@@ -169,9 +170,9 @@ void DSEventAction::EndOfEventAction(const G4Event* evt) {
   if ((evt->GetEventID() % EventCounter) == 0) {
     fTimer->Stop();
     if (evt->GetEventID() == 0) {
-      DSLog(routine) << ">>> Event " << evt->GetEventID() << ";  NPE = " << OverAllNPE << ";  NPE/event = " << G4float(fTotNPE) << "; Cluster Size = " << ClusterSize << ";" << endlog;
+      DSLog(routine) << ">>> Event " << evt->GetEventID() << ";  NPE = " << OverAllNPE << ";  NPE/event = " << G4float(fTotNPE) << "; Cluster Size = " << ClusterSize << "; Deposit Size = " << DepositSize << ";" << endlog;
     } else {
-      DSLog(routine) << ">>> Event " << evt->GetEventID() << ";  NPE = " << OverAllNPE << ";  NPE/event = " << G4float(fTotNPE) / G4float(EventCounter) << "; Cluster Size = " << ClusterSize << ";  CPUTime/event = " << fTimer->GetRealElapsed() / G4float(EventCounter) << " s" << endlog;
+      DSLog(routine) << ">>> Event " << evt->GetEventID() << ";  NPE = " << OverAllNPE << ";  NPE/event = " << G4float(fTotNPE) / G4float(EventCounter) << "; Cluster Size = " << ClusterSize << "; Deposit Size = " << DepositSize << ";  CPUTime/event = " << fTimer->GetRealElapsed() / G4float(EventCounter) << " s" << endlog;
     }
     DSLog(trace) << "    Starting Position: " << DSEventHandler::Get()->GetPosition() << " cm" << endlog;
     DSLog(trace) << "    Energy           : " << DSEventHandler::Get()->GetEnergy() << " keV" << endlog;

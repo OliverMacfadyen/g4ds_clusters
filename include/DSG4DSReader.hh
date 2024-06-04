@@ -34,6 +34,7 @@ class DSG4DSReader {
 
   void ClearAll();
 
+
   // vector<DepositStructure>&           GetVDeposits() { return theDeposits ; }
   vector<DepositStructure> GetVDeposits() { return theDeposits; }
   vector<DaughterStructure> GetVDaughters() { return theDaughters; }

@@ -17,6 +17,7 @@
 #include "G4SPSRandomGenerator.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4IonTable.hh"
+#include "G4RunManager.hh"
 //---------------------------------------------------------------------------//
 
 DSGeneratorEnergyDeposit::DSGeneratorEnergyDeposit() : DSVGenerator("DSGeneratorEnergyDeposit") {
@@ -51,7 +52,7 @@ DSGeneratorEnergyDeposit::~DSGeneratorEnergyDeposit() {
 
 void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
   G4bool isRead = false;
-  G4bool isNDepo = false;
+  //G4bool isNDepo = false;
   int counter = 0;
 //  int nSkip = DSStorage::Get()->GetSkipEvents();
   if (fSkipEvents > 0) {
@@ -59,44 +60,49 @@ void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
     fSkipEvents = 0;
   }
   
-  while (!isNDepo) {
-    isRead = DSG4DSReader::Get()->ReadEvent();
-    if (int(DSG4DSReader::Get()->GetVDeposits().size()) > 0) isNDepo = true;
-    cout << "NClusters obtained in GenEnergyDep: " << int(DSG4DSReader::Get()->GetEvent().NClusters) << endl;
-    if (int(DSG4DSReader::Get()->GetEvent().NClusters) > 10) {cout << "To be skipped" << endl; }
-  }
+  // while (!isNDepo) {
+  //   isRead = DSG4DSReader::Get()->ReadEvent();
+  //   if (int(DSG4DSReader::Get()->GetVDeposits().size()) > 0) isNDepo = true;
+  //   cout << "NClusters obtained in GenEnergyDep: " << int(DSG4DSReader::Get()->GetEvent().NClusters) << endl;
+  //   if (int(DSG4DSReader::Get()->GetEvent().NClusters) > 10) {cout << "To be skipped" << endl; }
+  // }
 
   
 
-  // while (counter != 8) {
-  //   isRead = DSG4DSReader::Get()->ReadEvent();
-  //   counter = 0;
-  //   //cout << "Size of cluster being read: " << G4int(DSG4DSReader::Get()->GetEvent().NClusters) << endl;
-  //   cout << "Size of cluster being read: " << G4int(DSG4DSReader::Get()->GetVClusters().size()) << endl;
-  //   for (int i = 0; i < G4int(DSG4DSReader::Get()->GetVClusters().size()); ++i) {
-  //   //for (int i = 0; i < DSG4DSReader::Get()->GetEvent().NClusters; ++i) {
-  //     cout << "Entered the for loop!!!" << endl;
-  //     cout << "RecoilID: " << DSG4DSReader::Get()->GetVClusters()[i].RecoilID << "___ Energy: " << DSG4DSReader::Get()->GetVClusters()[i].Energy << endl;
-  //     if ((DSG4DSReader::Get()->GetVClusters()[i].RecoilID > 0.49) && (DSG4DSReader::Get()->GetVClusters()[i].Energy > 0.4)) {
-  //       cout << "deposit in cluster is of the correct energy!" << endl;
-  //       counter ++ ;
-  //     }
-  //   }
-  //   if (!isRead) {
-  //     DSIO::Get()->CloseG4DSFile();
-  //     DSLog(routine) << "End of file reached" << endlog;
-  //     return;
-  //   }
-  // }
-
-  cout << "Just after the while loop the counter is " << counter << endl;
-
-
-  if (!isRead) {
-    DSIO::Get()->CloseG4DSFile();
-    DSLog(routine) << "End of file reached" << endlog;
-    return;
+  while (counter != 14) {
+    DSG4DSReader::Get()->ClearAll();
+    isRead = DSG4DSReader::Get()->ReadEvent();
+    counter = 0;
+    //cout << "Size of cluster being read: " << G4int(DSG4DSReader::Get()->GetEvent().NClusters) << endl;
+    cout << "Size of cluster being read: " << G4int(DSG4DSReader::Get()->GetVClusters().size()) << endl;
+    for (int i = 0; i < G4int(DSG4DSReader::Get()->GetVClusters().size()); ++i) {
+    //for (int i = 0; i < DSG4DSReader::Get()->GetEvent().NClusters; ++i) {
+      //cout << "Entered the for loop!!!" << endl;
+      //cout << "RecoilID: " << DSG4DSReader::Get()->GetVClusters()[i].RecoilID << "___ Energy: " << DSG4DSReader::Get()->GetVClusters()[i].Energy << endl;
+      //if ((DSG4DSReader::Get()->GetVClusters()[i].RecoilID > 0.49) && (DSG4DSReader::Get()->GetVClusters()[i].Energy > 0.4)) {
+      if (DSG4DSReader::Get()->GetVClusters()[i].Energy > 0.4) {
+        //cout << "deposit in cluster is of the correct energy!" << endl;
+        counter ++ ;
+      }
+    }
+    if (!isRead) {
+      DSIO::Get()->CloseG4DSFile();
+      DSLog(routine) << "End of file reached" << endlog;
+      
+      G4RunManager::GetRunManager()->AbortRun(true);
+      return;
+    }
+    
   }
+
+  //cout << "Just after the while loop the counter is " << counter << endl;
+
+
+  // if (!isRead) {
+  //   DSIO::Get()->CloseG4DSFile();
+  //   DSLog(routine) << "End of file reached" << endlog;
+  //   return;
+  // }
 
   cout << "VDeposits size: " << G4int(DSG4DSReader::Get()->GetVDeposits().size()) << endl;
   cout << "VClusters size: " << G4int(DSG4DSReader::Get()->GetVClusters().size()) << endl;
