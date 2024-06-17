@@ -67,7 +67,9 @@ G4bool DSG4DSReader::ReadEvent() {
 
   for (int i = 0; i < fEvent.NDeposits; i++) {
     DSIO::Get()->GetG4DSFile().read(reinterpret_cast<char*>(&fDeposit), sizeof(DepositStructure));
+    //cout << "fDeposit energy when read: " << fDeposit.Energy << endl;
     fDeposit.Energy *= keV;
+    //cout << "fDeposit energy after keV: " << fDeposit.Energy << endl;
     SetDeposit(fDeposit);
     SetDeposits();
     // cout<<fDeposit.Energy*MeV<<" "<<fDeposit.Time<<endl;
@@ -106,7 +108,7 @@ G4bool DSG4DSReader::ReadEvent() {
   }
 
   // Added to read the clusters from the file
-
+  if (fEvent.NClusters == 0) { cout << "NClusters obtained from G4Reader: 0" << endl;}
   for (int i = 0; i < fEvent.NClusters; i++) {
     DSIO::Get()->GetG4DSFile().read(reinterpret_cast<char*>(&fCluster), sizeof(ClusterStructure));
     // DSEventHandler::Get()->SetCluster(fCluster);

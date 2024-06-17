@@ -73,15 +73,13 @@ void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
     DSG4DSReader::Get()->ClearAll();
     isRead = DSG4DSReader::Get()->ReadEvent();
     counter = 0;
-    //cout << "Size of cluster being read: " << G4int(DSG4DSReader::Get()->GetEvent().NClusters) << endl;
-    cout << "Size of cluster being read: " << G4int(DSG4DSReader::Get()->GetVClusters().size()) << endl;
     for (int i = 0; i < G4int(DSG4DSReader::Get()->GetVClusters().size()); ++i) {
-    //for (int i = 0; i < DSG4DSReader::Get()->GetEvent().NClusters; ++i) {
-      //cout << "Entered the for loop!!!" << endl;
+
+
       //cout << "RecoilID: " << DSG4DSReader::Get()->GetVClusters()[i].RecoilID << "___ Energy: " << DSG4DSReader::Get()->GetVClusters()[i].Energy << endl;
       //if ((DSG4DSReader::Get()->GetVClusters()[i].RecoilID > 0.49) && (DSG4DSReader::Get()->GetVClusters()[i].Energy > 0.4)) {
       if (DSG4DSReader::Get()->GetVClusters()[i].Energy > 0.4) {
-        //cout << "deposit in cluster is of the correct energy!" << endl;
+        
         counter ++ ;
       }
     }
@@ -98,40 +96,90 @@ void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
   //cout << "Just after the while loop the counter is " << counter << endl;
 
 
-  // if (!isRead) {
-  //   DSIO::Get()->CloseG4DSFile();
-  //   DSLog(routine) << "End of file reached" << endlog;
-  //   return;
-  // }
+
 
   cout << "VDeposits size: " << G4int(DSG4DSReader::Get()->GetVDeposits().size()) << endl;
   cout << "VClusters size: " << G4int(DSG4DSReader::Get()->GetVClusters().size()) << endl;
-  for (int i = 0; i < G4int(DSG4DSReader::Get()->GetVDeposits().size()); ++i) {
-    
-    G4double xx = DSG4DSReader::Get()->GetVDeposits()[i].Position[0] * cm;
-    G4double yy = DSG4DSReader::Get()->GetVDeposits()[i].Position[1] * cm;
-    G4double zz = DSG4DSReader::Get()->GetVDeposits()[i].Position[2] * cm;
+
+
+  //   Following section uses the values of the CLUSTERS to generate the new events 
+
+  double check_for_energy = 0;
+  for (int i=0; i < G4int(DSG4DSReader::Get()->GetVClusters().size()); ++i) {
+    G4double xx = DSG4DSReader::Get()->GetVClusters()[i].Position[0] * cm;
+    G4double yy = DSG4DSReader::Get()->GetVClusters()[i].Position[1] * cm;
+    G4double zz = DSG4DSReader::Get()->GetVClusters()[i].Position[2] * cm;
 
     fPosition = G4ThreeVector(xx, yy, zz);
 
- 
-    if (DSG4DSReader::Get()->GetVDeposits()[i].PID < 10000)
-      fParticle = fParticleTable->FindParticle(DSG4DSReader::Get()->GetVDeposits()[i].PID);
+    if (DSG4DSReader::Get()->GetVClusters()[i].RecoilID < 0.5)
+      fParticle = fParticleTable->FindParticle(11);
     else 
-      fParticle = G4IonTable::GetIonTable()->GetIon(DSG4DSReader::Get()->GetVDeposits()[i].PID);
-    
+      fParticle = G4IonTable::GetIonTable()->GetIon(1000401800);
+
     G4ParticleMomentum theMomentum = fSPSAng->GenerateOne();
 
     G4PrimaryParticle* particle = new G4PrimaryParticle(fParticle);
-    particle->SetKineticEnergy(DSG4DSReader::Get()->GetVDeposits()[i].Energy);
+    cout << "Cluster energy being set as deposit: " << DSG4DSReader::Get()->GetVClusters()[i].Energy * keV << endl;
+
+
+    particle->SetKineticEnergy((DSG4DSReader::Get()->GetVClusters()[i].Energy * keV));
     particle->SetMomentumDirection(theMomentum);
 
-    G4PrimaryVertex* vertex = new G4PrimaryVertex(fPosition, DSG4DSReader::Get()->GetVDeposits()[i].Time * ns);
+    G4PrimaryVertex* vertex = new G4PrimaryVertex(fPosition, DSG4DSReader::Get()->GetVClusters()[i].Time * ns);
+    check_for_energy += DSG4DSReader::Get()->GetVClusters()[i].Energy ;
+    if ( i == G4int(DSG4DSReader::Get()->GetVClusters().size()) - 1) {
+      cout << "Total of these energies: " << check_for_energy << endl;
+    }
+    //G4PrimaryVertex* vertex = new G4PrimaryVertex(fPosition, DSG4DSReader::Get()->GetVDeposits()[i].Time);
 
     vertex->SetPrimary(particle);
     event->AddPrimaryVertex(vertex);
+
   }
 
+
+  // '''
+
+  //   Following section uses the values of the DEPOSITS to generate the new events (the original code)
+
+  // '''
+  
+  // double countDepEnergy = 0;
+  // for (int i = 0; i < G4int(DSG4DSReader::Get()->GetVDeposits().size()); ++i) {
+  //   countDepEnergy += DSG4DSReader::Get()->GetVDeposits()[i].Energy;
+  //   if ( i == G4int(DSG4DSReader::Get()->GetVDeposits().size()) - 1) { cout << "Total deposited energy for this event: " << countDepEnergy << endl; }
+    
+  //   G4double xx = DSG4DSReader::Get()->GetVDeposits()[i].Position[0] * cm;
+  //   G4double yy = DSG4DSReader::Get()->GetVDeposits()[i].Position[1] * cm;
+  //   G4double zz = DSG4DSReader::Get()->GetVDeposits()[i].Position[2] * cm;
+
+  //   fPosition = G4ThreeVector(xx, yy, zz);
+
+
+
+ 
+  //   if (DSG4DSReader::Get()->GetVDeposits()[i].PID < 10000)
+  //     fParticle = fParticleTable->FindParticle(DSG4DSReader::Get()->GetVDeposits()[i].PID);
+  //   else 
+  //     fParticle = G4IonTable::GetIonTable()->GetIon(DSG4DSReader::Get()->GetVDeposits()[i].PID);
+    
+  //   G4ParticleMomentum theMomentum = fSPSAng->GenerateOne();
+
+  //   G4PrimaryParticle* particle = new G4PrimaryParticle(fParticle);
+  //   cout << "Deposit energy being set: " << DSG4DSReader::Get()->GetVDeposits()[i].Energy /keV<< endl;
+
+
+  //   particle->SetKineticEnergy((DSG4DSReader::Get()->GetVDeposits()[i].Energy));
+  //   particle->SetMomentumDirection(theMomentum);
+
+  //   G4PrimaryVertex* vertex = new G4PrimaryVertex(fPosition, DSG4DSReader::Get()->GetVDeposits()[i].Time * ns);
+  //   //G4PrimaryVertex* vertex = new G4PrimaryVertex(fPosition, DSG4DSReader::Get()->GetVDeposits()[i].Time);
+
+  //   vertex->SetPrimary(particle);
+  //   event->AddPrimaryVertex(vertex);
+  // }
+  
   DSG4DSReader::Get()->ClearAll();
 }
 

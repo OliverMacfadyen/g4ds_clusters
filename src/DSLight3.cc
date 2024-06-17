@@ -197,7 +197,7 @@ G4VParticleChange* DSLight3::PostStepDoIt(const G4Track& aTrack, const G4Step& a
   G4double mySingletTripletRatio = GetPromptFraction(myZ, InitialKinEne);
 
 
-  bool isInActiveLAr = (mat_idx == DSMaterial::Get()->GetTPCMaterialIndex()) ||  (mat_idx == DSStorage::Get()->GetLArAboveGridIndex());
+  bool isInActiveLAr = (mat_idx == DSMaterial::Get()->GetTPCMaterialIndex()) ||  (mat_idx == DSStorage::Get()->GetLArAboveGridIndex() || mat_idx == DSMaterial::Get()->GetIVMaterialIndex() );
   //bool isInActiveLAr = (aStep.GetPreStepPoint()->GetPhysicalVolume()->GetName() == "ActiveLAr") || (aStep.GetPreStepPoint()->GetPhysicalVolume()->GetName() == "LArAboveGrid") 
 
   // ? 1 : 0;

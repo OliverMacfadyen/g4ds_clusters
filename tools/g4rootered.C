@@ -47,6 +47,7 @@ vector<PhotonStructure>        thePhotons;
 vector<PhotoElectronStructure> thePhotoElectrons ;
 vector<PhotoElectronStructure> theVetoPhotoElectrons ;
 vector<PhotoElectronStructure> theMuPhotoElectrons ;
+vector<ClusterStructure>       theClusters;
 
 struct cmp_photoelectron{ 
   bool operator() (const PhotoElectronStructure& a, const PhotoElectronStructure& b) {
@@ -117,6 +118,12 @@ PhotoElectronStructure _readMuPhotoElectron (ifstream *file) {
   return theMuPhotoElectron;
 } 
 
+ClusterStructure _readCluster (ifstream *file) {
+  ClusterStructure theCluster ;
+  file->read ((char *)(&theCluster), sizeof( ClusterStructure) );       
+  return theCluster;
+} 
+
 
 
 bool _readEvent (ifstream *file) {
@@ -127,7 +134,7 @@ bool _readEvent (ifstream *file) {
   thePhotoElectrons.clear() ;
   theVetoPhotoElectrons.clear() ;
   theMuPhotoElectrons.clear() ;   
-
+  theClusters.clear();
   if (!(*file)) return false;
   
   int event_size;
@@ -135,7 +142,7 @@ bool _readEvent (ifstream *file) {
   file->read ((char *)(&event_size), sizeof (int)); 
   file->read ((char *)(&theEvent), sizeof( EventStructureDiskFormat)  ); 
   if(file->eof()) return false ;
-  
+  cout << "A" << endl ; 
   if(theEvent.NDaughters > MAXDAUGHTER) { cout << "Fatal: NDaughters > MAXDAUGHTER : " << theEvent.NDaughters << " > " << MAXDAUGHTER << endl ; exit(0) ;}
   if(theEvent.NDeposits  > MAXDEPOSIT ) { cout << "Fatal: NDeposits = " << theEvent.NDeposits << " > MAXDEPOSIT" << endl ; exit(0) ;}
   if(theEvent.NUsers     > MAXUSER)     { cout << "Fatal: NUsers > MAXUSER" << endl ; exit(0) ;}
@@ -143,7 +150,7 @@ bool _readEvent (ifstream *file) {
   if(theEvent.NPE        > MAXNPE)      { cout << "Fatal: NPE > MAXNPE" << endl ; exit(0) ;}
   if(theEvent.VetoNPE    > MAXNPE)      { cout << "Fatal: VetoNPE > MAXNPE" << endl ; exit(0) ;}
   if(theEvent.MuNPE      > MAXNPE)      { cout << "Fatal: MuNPE > MAXNPE" << endl ; exit(0) ;} 
-
+	 cout << "BA" << endl ; 
 
   for(int i=0; i<theEvent.NDaughters; i++) theDaughters.push_back(_readDaughter(file));
   for(int i=0; i<theEvent.NDeposits; i++)  theDeposits.push_back(_readDeposit(file));
@@ -152,6 +159,8 @@ bool _readEvent (ifstream *file) {
   for(int i=0; i<theEvent.NPE; i++)        thePhotoElectrons.push_back(_readPhotoElectron(file));
   for(int i=0; i<theEvent.VetoNPE; i++)    theVetoPhotoElectrons .push_back(_readMuPhotoElectron(file));
   for(int i=0; i<theEvent.MuNPE; i++)      theMuPhotoElectrons.push_back(_readMuPhotoElectron(file));
+  for(int i=0; i<theEvent.NClusters; i++)  theClusters.push_back(_readCluster(file));
+ cout << "AA" << endl ; 
   file->read ((char *)(&event_size2), sizeof (int));  
   if(file->eof()) return false ;
   if(event_size != event_size2) return false ;
@@ -274,6 +283,11 @@ int main (int argc, char *argv[]) {
   double *dep_time  = new double[MAXDEPOSIT];
   int    *dep_track = new int[MAXDEPOSIT]; 
    
+
+  float  *cl_ene  = new float[MAXDEPOSIT]; 
+  float  *cl_s1ene  = new float[MAXDEPOSIT]; 
+  double *cl_time  = new double[MAXDEPOSIT];
+
   // user variables
   int    INT1[MAXUSER], INT2[MAXUSER];  
   float  FLOAT1[MAXUSER], FLOAT2[MAXUSER];
@@ -334,7 +348,8 @@ int main (int argc, char *argv[]) {
   dstree->Branch("nph",            &theEvent.NPH,	      "nph/I");        
   dstree->Branch("ndaughters",     &theEvent.NDaughters,      "ndaughters/I"); 
   dstree->Branch("ndeposits" ,     &theEvent.NDeposits,       "ndeposits/I");  
-  dstree->Branch("nusers",         &theEvent.NUsers,	      "nusers/I");     
+  dstree->Branch("nusers",         &theEvent.NUsers,	      "nusers/I");  
+  dstree->Branch("nclusters",      &theEvent.NClusters,	      "nclusters/I"); 
   dstree->Branch("dau_id",         Did,                  "Did[ndaughters]/I");
   dstree->Branch("dau_pdg",        Dpdg,                 "Dpdg[ndaughters]/I");
   dstree->Branch("dau_pid",        Dpid,                 "Dpid[ndaughters]/I");
@@ -380,6 +395,10 @@ int main (int argc, char *argv[]) {
   dstree->Branch("ph_y",         ph_y,                    "ph_y[nph]/F");
   dstree->Branch("ph_z",         ph_z,                    "ph_z[nph]/F");
   dstree->Branch("ph_time",      ph_time,                 "ph_time[nph]/D");
+  
+  dstree->Branch("cl_time",      cl_time,                 "cl_time[nclusters]/D");
+  dstree->Branch("cl_ene",      cl_ene,                 "cl_ene[nclusters]/F");
+  dstree->Branch("cl_s1ene",      cl_s1ene,                 "cl_s1ene[nclusters]/F");
   
   
   // Open the binary file
@@ -484,6 +503,13 @@ int main (int argc, char *argv[]) {
       mu_pe_pmt[i]  = theMuPhotoElectrons[i].PMT;    
       mu_pe_time[i] = theMuPhotoElectrons[i].Time;    
     }
+
+    for(int i=0;i<theEvent.NClusters;++i) {
+      cl_ene[i]  = theClusters[i].Energy;
+      cl_s1ene[i]  = theClusters[i].S1Energy;
+      cl_time[i] = theClusters[i].Time;
+    }
+ 
     // Fill photon variables
     for(int i=0;i<theEvent.NPH;++i) {
       ph_volume[i] = thePhotons[i].VolumeID; 

@@ -9,7 +9,7 @@
 #  Define the level of verbosity of messages
 # options: debugging, development, trace, routine, warning, error
 # default: routine
-/ds/manager/log routine
+/ds/manager/log debugging
 /ds/manager/verbosity 1
 /ds/manager/checkoverlap 0
 /ds/manager/eventcounter 1

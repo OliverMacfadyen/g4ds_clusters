@@ -33,7 +33,7 @@
 #Define the EM physics list (standard livermore)
 /ds/physics/em_list livermore
 
-/ds/physics/killS1S2 1
+/ds/physics/killS2 1
 /ds/detector/vetoyieldfactor 0.0
 
 #-----------------------------------
@@ -41,10 +41,10 @@
 #-----------------------------------
 /ds/generator/select G4Gun
 
-/ds/generator/particle gamma
+/ds/generator/particle Ar40
 #/ds/generator/direction  0 0 0
 #/ds/generator/position   0 0 0 cm
-/ds/generator/energy   5 MeV
+/ds/generator/energy   50 keV
 /ds/generator/tpcdistribution 1
 #/ds/generator/bgd_reflector 1
 

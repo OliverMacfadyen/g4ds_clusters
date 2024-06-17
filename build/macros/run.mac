@@ -44,9 +44,9 @@
 /ds/generator/particle gamma
 #/ds/generator/direction  0 0 0
 #/ds/generator/position   0 0 0 cm
-/ds/generator/energy   5 MeV
+/ds/generator/energy   5000 keV
 /ds/generator/tpcdistribution 1
-#/ds/generator/bgd_reflector 1
+#/ds/generator/argonbufferoutside 1
 
 # Define the number of events
 /run/beamOn 10
