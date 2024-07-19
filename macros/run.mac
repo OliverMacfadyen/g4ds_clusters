@@ -7,10 +7,10 @@
 #  Define the level of verbosity of messages
 # options: debugging, development, trace, routine, warning, error
 # default: routine
-/ds/manager/log trace
+/ds/manager/log routine
 /ds/manager/verbosity 0
 /ds/manager/checkoverlap 0
-/ds/manager/eventcounter 1
+/ds/manager/eventcounter 1000
 /ds/manager/writephotons 0
 /ds/manager/writedeposits 1
 /ds/manager/writedaughters 1
@@ -19,34 +19,40 @@
 # ds50_full ds50_tpc_veto ds50_tpc ds20k ds20k_tpc dsproto dsproto0 red_tpc dart ardm tester
 
 /ds/detector/configuration ds20k
+/ds/detector/ds20k_SiPMsNumber 100
+/ds/detector/vetoyieldfactor 0
+/ds/detector/ds20k_SiPMs 1
 
+/ds/detector/TPCconfiguration PurePMMA
 
 # Define output file name
-/run/filename gammaTestRun
+/run/filename neutron_test_run
 
 # Define  random seed
 /run/heprandomseed 12345679
 
 #Define the hadronic physics list (none HP QGSP_BERT_HP QGSP_BIC_HP FTF_BIC_HP FTFP_BERT_HP)
-/ds/physics/hadronic_list none
+/ds/physics/hadronic_list HP
 
 #Define the EM physics list (standard livermore)
 /ds/physics/em_list livermore
 
-/ds/physics/killS2 1
-/ds/detector/vetoyieldfactor 0.0
+/ds/physics/killS1S2 1
+/ds/physics/tuned200V 1
 
 #-----------------------------------
 /run/initialize
 #-----------------------------------
 /ds/generator/select G4Gun
+/ds/generator/bgd_sipm 1
 
-/ds/generator/particle Ar40
+/ds/generator/particle neutron
 #/ds/generator/direction  0 0 0
 #/ds/generator/position   0 0 0 cm
-/ds/generator/energy   50 keV
-/ds/generator/tpcdistribution 1
+#/ds/generator/energy   50 keV
+#/ds/generator/tpcdistribution 1
 #/ds/generator/bgd_reflector 1
+/ds/generator/energyfile ../data/physics/U238StainlessSteel.dat
 
 # Define the number of events
-/run/beamOn 10
+/run/beamOn 1000000
