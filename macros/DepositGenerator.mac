@@ -9,7 +9,7 @@
 #  Define the level of verbosity of messages
 # options: debugging, development, trace, routine, warning, error
 # default: routine
-/ds/manager/log debugging
+/ds/manager/log routine
 /ds/manager/verbosity 1
 /ds/manager/checkoverlap 0
 /ds/manager/eventcounter 1
@@ -19,7 +19,7 @@
 /ds/detector/configuration ds20k
 
 # Define output file name
-/run/filename cluster_test_gammas
+/run/filename cluster_test_neutrons
 
 # Define  random seed
 /run/heprandomseed 12345679
@@ -31,7 +31,7 @@
 /ds/physics/em_list livermore
 
 
-/ds/physics/killS1S2 1
+/ds/physics/killS2 1
 
 
 
@@ -45,7 +45,7 @@
 
 /ds/generator/select EnergyDeposit
 
-/ds/generator/endep/file /Users/olivermacfadyen/Documents/simulation/g4ds_clusters/build/gammaTestRun_v1.fil
+/ds/generator/endep/file /Users/olivermacfadyen/Documents/simulation/g4ds_clusters/build/neutron_test_run_v6.fil
 
 # Define the number of events
-/run/beamOn 10
+/run/beamOn 1000000
