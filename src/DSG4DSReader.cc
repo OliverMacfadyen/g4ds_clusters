@@ -108,14 +108,14 @@ G4bool DSG4DSReader::ReadEvent() {
   }
 
   // Added to read the clusters from the file
-  if (fEvent.NClusters == 0) { cout << "NClusters obtained from G4Reader: 0" << endl;}
+  //if (fEvent.NClusters == 0) { cout << "NClusters obtained from G4Reader: 0" << endl;}
   for (int i = 0; i < fEvent.NClusters; i++) {
     DSIO::Get()->GetG4DSFile().read(reinterpret_cast<char*>(&fCluster), sizeof(ClusterStructure));
     // DSEventHandler::Get()->SetCluster(fCluster);
     // DSEventHandler::Get()->SetClusters();
     SetCluster(fCluster);
     SetClusters();
-    if ( i == (fEvent.NClusters) - 1) { cout << "NClusters obtained from G4Reader: " << i + 1 << endl; }
+    //if ( i == (fEvent.NClusters) - 1) { cout << "NClusters obtained from G4Reader: " << i + 1 << endl; }
     //cout << "Cluster information from G4Reader: " << fCluster.RecoilID << endl;
   }
 

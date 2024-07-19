@@ -67,9 +67,17 @@ void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
   //   if (int(DSG4DSReader::Get()->GetEvent().NClusters) > 10) {cout << "To be skipped" << endl; }
   // }
 
-  
 
-  while (counter != 14) {
+  //The idea is to isolate a cluster size of 1 for NR neutrons so that we only generate light for these events
+
+
+
+
+  //for Gamma test run 
+  //while (counter != 14) {
+
+  //for neutron run 
+  while (counter != 1) {
     DSG4DSReader::Get()->ClearAll();
     isRead = DSG4DSReader::Get()->ReadEvent();
     counter = 0;
@@ -77,8 +85,11 @@ void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
 
 
       //cout << "RecoilID: " << DSG4DSReader::Get()->GetVClusters()[i].RecoilID << "___ Energy: " << DSG4DSReader::Get()->GetVClusters()[i].Energy << endl;
-      //if ((DSG4DSReader::Get()->GetVClusters()[i].RecoilID > 0.49) && (DSG4DSReader::Get()->GetVClusters()[i].Energy > 0.4)) {
-      if (DSG4DSReader::Get()->GetVClusters()[i].Energy > 0.4) {
+      //this statement is to apply NR cut on the cluster
+      if ((DSG4DSReader::Get()->GetVClusters()[i].RecoilID > 0.49) && (DSG4DSReader::Get()->GetVClusters()[i].Energy > 0.4)) {
+
+      //this statement was for the 5 MeV gammas test 
+      //if (DSG4DSReader::Get()->GetVClusters()[i].Energy > 0.4) {
         
         counter ++ ;
       }
@@ -120,10 +131,10 @@ void DSGeneratorEnergyDeposit::DSGeneratePrimaries(G4Event* event) {
     G4ParticleMomentum theMomentum = fSPSAng->GenerateOne();
 
     G4PrimaryParticle* particle = new G4PrimaryParticle(fParticle);
-    cout << "Cluster energy being set as deposit: " << DSG4DSReader::Get()->GetVClusters()[i].Energy * keV << endl;
+    cout << "Cluster energy being set as deposit: " << DSG4DSReader::Get()->GetVClusters()[i].Energy << endl; // This has no * keV as there is a / keV value in dsstepptingaction.cc line 37. The lack of it here gives you the actual value being used to generate the new deposits
 
 
-    particle->SetKineticEnergy((DSG4DSReader::Get()->GetVClusters()[i].Energy * keV));
+    particle->SetKineticEnergy((DSG4DSReader::Get()->GetVClusters()[i].Energy * keV)); // see comment above for * keV. Value passed to dssteppingaction.cc 
     particle->SetMomentumDirection(theMomentum);
 
     G4PrimaryVertex* vertex = new G4PrimaryVertex(fPosition, DSG4DSReader::Get()->GetVClusters()[i].Time * ns);
