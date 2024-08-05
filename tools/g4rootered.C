@@ -142,7 +142,7 @@ bool _readEvent (ifstream *file) {
   file->read ((char *)(&event_size), sizeof (int)); 
   file->read ((char *)(&theEvent), sizeof( EventStructureDiskFormat)  ); 
   if(file->eof()) return false ;
-  cout << "A" << endl ; 
+  // cout << "A" << endl ; 
   if(theEvent.NDaughters > MAXDAUGHTER) { cout << "Fatal: NDaughters > MAXDAUGHTER : " << theEvent.NDaughters << " > " << MAXDAUGHTER << endl ; exit(0) ;}
   if(theEvent.NDeposits  > MAXDEPOSIT ) { cout << "Fatal: NDeposits = " << theEvent.NDeposits << " > MAXDEPOSIT" << endl ; exit(0) ;}
   if(theEvent.NUsers     > MAXUSER)     { cout << "Fatal: NUsers > MAXUSER" << endl ; exit(0) ;}
@@ -150,7 +150,7 @@ bool _readEvent (ifstream *file) {
   if(theEvent.NPE        > MAXNPE)      { cout << "Fatal: NPE > MAXNPE" << endl ; exit(0) ;}
   if(theEvent.VetoNPE    > MAXNPE)      { cout << "Fatal: VetoNPE > MAXNPE" << endl ; exit(0) ;}
   if(theEvent.MuNPE      > MAXNPE)      { cout << "Fatal: MuNPE > MAXNPE" << endl ; exit(0) ;} 
-	 cout << "BA" << endl ; 
+	//  cout << "BA" << endl ; 
 
   for(int i=0; i<theEvent.NDaughters; i++) theDaughters.push_back(_readDaughter(file));
   for(int i=0; i<theEvent.NDeposits; i++)  theDeposits.push_back(_readDeposit(file));
@@ -160,7 +160,7 @@ bool _readEvent (ifstream *file) {
   for(int i=0; i<theEvent.VetoNPE; i++)    theVetoPhotoElectrons .push_back(_readMuPhotoElectron(file));
   for(int i=0; i<theEvent.MuNPE; i++)      theMuPhotoElectrons.push_back(_readMuPhotoElectron(file));
   for(int i=0; i<theEvent.NClusters; i++)  theClusters.push_back(_readCluster(file));
- cout << "AA" << endl ; 
+//  cout << "AA" << endl ; 
   file->read ((char *)(&event_size2), sizeof (int));  
   if(file->eof()) return false ;
   if(event_size != event_size2) return false ;
